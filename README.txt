@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Como gerar o documento final PDF de seu trabalho monográfico (TCC,
-%%% Dissertação, Tese) na FAESA Centro Universitário (https://www.faesa.br),
-%%% utilizando a classe faesaTeX2.
+%%% Dissertação, Tese) na Universidade Vila Velha (UVV) (https://www.uvv.br),
+%%% utilizando a classe uvvTeX2.
 %%%
 %%% Para maiores informações, visite:
-%%% https://github.com/abrantesasf/faesatex2
+%%%    https://github.com/uvv-computacao/uvvtex2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Você pode gerar o documento PDF final de duas maneiras: com o pdfLaTeX ou com
@@ -31,4 +31,6 @@ a versão final em PDF:
       xelatex dissertacao.tex
       xelatex dissertacao.tex
 
+3) Para gerar índices remissivos, glossários e coisas mais avançadas,
+   consulte a documentação do TeX/LaTeX ou o guru LaTeX da UVV.
 

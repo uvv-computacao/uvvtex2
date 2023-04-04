@@ -1,32 +1,33 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Modelo para trabalhos monográficos (TCC, Dissertações, Teses) da FAESA
-%%% Centro Universitário (https://www.faesa.br), utilizando a classe faesaTeX2.
+%%% Modelo para trabalhos monográficos (TCC, Dissertações, Teses, etc.) da
+%%% Universidade Vila Velha (UVV) (https://www.uvv.br), utilizando a classe
+%%% uvvTeX2.
 %%%
 %%% Para maiores informações, visite:
-%%% https://github.com/abrantesasf/faesatex2
+%%%    https://github.com/uvv-computacao/uvvtex2
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Classe do documento
 %%% As opções padronizadas abaixo são otimizadas para a apresentação monográfica
-%%% na FAESA: só altere se souber exatamente o que está fazendo.
+%%% na UVV: só altere se souber exatamente o que está fazendo.
 \documentclass[
 	% -- opções da classe memoir (utilizada pela abnTeX2) --
 	12pt,				  % tamanho da fonte
 	openright,			  % capítulos começam em página ímpar
 	twoside,			  % impressão nos dois lados do papel
 	a4paper,			  % tamanho do papel
-	% -- opções da classe abnTeX2 (utilizada pela faesaTeX2) --
+	% -- opções da classe abnTeX2 (utilizada pela uvvTeX2) --
 	%chapter=TITLE,		  % capítulos em letras maiúsculas
 	%section=TITLE,		  % seções em letras maiúsculas
 	%subsection=TITLE,	  % subseções em letras maiúsculas
-	%subsubsection=TITLE, % subsubseções em letras maiúsculas
+	%subsubsection=TITLE,     % subsubseções em letras maiúsculas
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
 	french,				% idioma adicional para hifenização
 	spanish,			% idioma adicional para hifenização
 	brazil				% o último idioma é o principal do documento
-	]{faesatex2}
+	]{uvvtex2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,10 +43,10 @@
 \autor{Primeiro Autor \and Segundo Autor}
 
 % Informe o local no formato Cidade/UF (geralmente não é necessário alterar).
-\local{Vitória/ES}
+\local{Vila Velha/ES}
 
 % Informe o ano.
-\data{2021}
+\data{2023}
 
 % Informe o nome do orientador (por extenso). Se for mulher, ajuste a
 % qualificação que está entre colchetes.
@@ -56,11 +57,11 @@
 % a linha.
 \coorientador[Coorientador:]{Nome do Coorientador}
 
-% Informe a unidade ou o departamento de seu curso na FAESA.
-\unidadefaesa{Unidade de Engenharia e Computação}
+% Informe a unidade ou o departamento de seu curso na UVV.
+\unidadeuvv{Unidade de Tecnologia}
 
-% Informe qual o seu curso na FAESA.
-\cursofaesa{Graduação em Ciência da Computação}
+% Informe qual o seu curso na UVV.
+\cursouvv{Graduação em Ciência da Computação}
 
 % Informe que tipo de trabalho monográfico é este, com uma das seguintes opções:
 %    Trabalho de Conclusão de Curso
@@ -68,16 +69,16 @@
 %    Tese de Doutorado
 \tipotrabalho{Trabalho de Conclusão de Curso}
 
-% Nome oficial da FAESA (evite alterar).
-\nomefaesa{FAESA Centro Universitário}
+% Nome oficial da UVV (evite alterar).
+\nomeuvv{Universidade Vila Velha}
 
 % Informe o preâmbulo da monografia (geralmente o tipo de trabalho, o objetivo,
 % o nome da instituição e a área de concentração). Consulte seu orientador para
 % instruções específicas se necessário, ou altere o modelo abaixo conforme
-% suas necessidades (não retire os comandos "\imprimirunidadefaesa" e
-% "\imprimirnomefaesa").
+% suas necessidades (não retire os comandos "\imprimirunidadeuvv" e
+% "\imprimirnomeuvv").
 \preambulo{Trabalho Preliminar de Conclusão de Curso (TCC-1) apresentado à
-\imprimirunidadefaesa\ da \imprimirnomefaesa, como requisito parcial para a
+\imprimirunidadeuvv\ da \imprimirnomeuvv, como requisito parcial para a
 obtenção do grau de bacharel em Ciência da Computação.}
 
 % Palavras-chave da monografia, em português. Essas palavras-chave serão
@@ -101,13 +102,13 @@ obtenção do grau de bacharel em Ciência da Computação.}
 % https://www.tabelacutter.com ou https://cuttersonline.com) e escreve o código
 % aqui. Atenção: como nome do autor use "Sobrenome, Nome" e como complemento ou
 % marca, use a primeira letra do título da monografia, em minúscula. Se você
-% tiver dificuldade, peça auxílio à bibliotecária da FAESA.
+% tiver dificuldade, peça auxílio à bibliotecária da UVV.
 \cutter{X999x}
 
 % Assuntos para a ficha catalográfica. É obrigatório incluir pelo menos 1
 % assunto (até o total de 5). Colocar ponto após o número do assunto e após o
 % próprio assunto. Comentar os que, por acaso, não forem utilizados. Se você
-% tiver dificuldade, peça auxílio à bibliotecária da FAESA.
+% tiver dificuldade, peça auxílio à bibliotecária da UVV.
 \assunto{%
 1. Assunto um.
 2. Assunto dois.
@@ -116,13 +117,13 @@ obtenção do grau de bacharel em Ciência da Computação.}
 5. Assunto cinco.
 I. Sobrenome, Nome.           % Sobrenome e nome: 2º autor OU orientador
 II. Sobrenome, Nome.          % Sobrenome e nome: orientador OU coorientador
-III. \imprimirnomefaesa.      % Sobrenome e nome do coorientador OU nome FAESA
-IV. Título.                   % Nome FAESA OU a palavra "Título"
+III. \imprimirnomeuvv  .      % Sobrenome e nome do coorientador OU nome UVV
+IV. Título.                   % Nome UVV OU a palavra "Título"
 %V. Título.                   % A palavra "Título", SE não está na linha acima
 }
 
 % NÃO ALTERE AQUI:
-\input{utils/faesa}
+\input{utils/uvv}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,7 +188,7 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 % Faça as modificações necessárias no arquivo "errata.tex", que está no
 % diretório "pretextuais". Para incluir a errata, retire o comentário do comando
 % abaixo. Se não houver errata, mantenha comentado.
-%\input{pretextuais/errata}
+\input{pretextuais/errata}
 
 % Folha de aprovação: OBRIGATÓRIA.
 % Faça as modificações necessárias no arquivo "aprovacao.tex", que está no
@@ -224,7 +225,7 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 
 % Lista de ilustrações: OPCIONAL (geralmente é incluída).
 % É gerada automaticamente. Para incluir, retire o comentário do comando abaixo.
-\input{pretextuais/ilustracoes}
+%\input{pretextuais/ilustracoes}
 
 % Lista de quadros: OPCIONAL (geralmente NÃO é incluída).
 % Para incluir, retire o comentário do comando abaixo. Tem certeza que você
@@ -233,13 +234,13 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 
 % Lista de tabelas: OPCIONAL (geralmente é incluída).
 % É gerada automaticamente. Para incluir, retire o comentário do comando abaixo.
-\input{pretextuais/tabelas}
+%\input{pretextuais/tabelas}
 
 % Lista de abreviaturas e siglas: OPCIONAL (geralmente é incluída).
 % Faça as alterações necessárias no arquivo "abrev.tex", que está no diretório
 % "pretextuais". Para incluir, retire o comentário do comando abaixo. Se não
 % houver a lista de abreviaturas e siglas, mantenha o comando comentado.
-\input{pretextuais/abrev}
+%\input{pretextuais/abrev}
 
 % Lista de símbolos: OPCIONAL (geralmente NÃO é incluída).
 % Faça as alterações necessárias no arquivo "simb.tex", que está no diretório
@@ -265,7 +266,7 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 %                      /input{textuais/arquivo}
 %
 % Note que, no comando acima, para incluir um capítulo gravado no arquivo
-% "arquito.tex", não incluímos a extensão. Na FAESA os trabalhos monográficos
+% "arquito.tex", não incluímos a extensão. Na UVV os trabalhos monográficos
 % geralmente seguem a seguinte estrutura:
 %
 % Se projeto de pesquisa:
@@ -286,7 +287,7 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 % de seu trabalho, e inclua os arquivos apropriados a seguir (na ordem em que
 % devem aparecer). Obviamente a linha não deve estar comentada, não é?
 
-%\input{textuais/introducao}
+\input{textuais/introducao}
 
 %\input{textuais/referencial}
 
@@ -330,10 +331,10 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 % Se sua monografia incluir apêndices, descomente o bloco de código abaixo e
 % inclua, através de comandos "input" (conforme o exemplo) os arquivos que farão
 % parte dos apêndices, na ordem que você deseja.
-%\begin{apendicesenv}
-%\partapendices
-%\input{postextuais/apend1}
-%\end{apendicesenv}
+\begin{apendicesenv}
+\partapendices
+\input{postextuais/apend1}
+\end{apendicesenv}
 
 % Anexos: OPCIONAIS (você deve incluir os não dependendo se seu trabalho tem
 % ou não anexos).
@@ -342,10 +343,10 @@ IV. Título.                   % Nome FAESA OU a palavra "Título"
 % Se sua monografia incluir anexos, descomente o bloco de código abaixo e
 % inclua, através de comandos "input" (conforme o exemplo) os arquivos que farão
 % parte dos anexos, na ordem que você deseja.
-%\begin{anexosenv}
-%\partanexos
-%\input{postextuais/anex1}
-%\end{anexosenv}
+\begin{anexosenv}
+\partanexos
+\input{postextuais/anex1}
+\end{anexosenv}
 
 % Índice remissivo: OPCIONAL (geralmente NÃO é incluído).
 % Se quiser incluir um índice remissivo, consulte a documentação do abnTeX2 para
