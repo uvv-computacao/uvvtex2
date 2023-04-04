@@ -1,3 +1,6 @@
+## abnTeX2
+*.loq
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
