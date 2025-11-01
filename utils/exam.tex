@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% exam.tex
+%
+% Arquivo de configuração para a classe EXAM, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Utilitários para a classe Exam:
+\makeatletter
+\@ifclassloaded{exam}{%
+   % Linhas para respostas
+   \setlength\linefillthickness{0.2pt}
+   \newcommand{\umalinha}{\fillwithlines{0.25in}}
+   \newcommand{\duaslinhas}{\fillwithlines{0.50in}}
+   \newcommand{\treslinhas}{\fillwithlines{0.75in}}
+   \newcommand{\quatrolinhas}{\fillwithlines{1.00in}}
+   \newcommand{\cincolinhas}{\fillwithlines{1.25in}}
+   \newcommand{\seislinhas}{\fillwithlines{1.50in}}
+   \newcommand{\setelinhas}{\fillwithlines{1.75in}}
+   \newcommand{\oitolinhas}{\fillwithlines{2.00in}}
+   \newcommand{\novelinhas}{\fillwithlines{2.25in}}
+   \newcommand{\dezlinhas}{\fillwithlines{2.50in}}
+   
+   % Verdadeiro ou Falso
+   \newcommand{\vf}[1][{}]{%
+      \fillin[#1][0.25in]%
+   }
+   
+   % Título das respostas:
+   %\renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\par\noindent}
+   \renewcommand{\solutiontitle}{\noindent}
+   %\shadedsolutions
+   %\SolutionEmphasis{\itshape}
+   
+   % Altera a marca de questão correta e a ênfase:
+   \checkedchar{$\Rightarrow$}
+   \CorrectChoiceEmphasis{\color{red}\itshape}
+}{}
+\makeatother
+

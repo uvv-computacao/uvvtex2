@@ -12,7 +12,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Configurações básicas do PDF
-\makeatletter
 \hypersetup{
    unicode=true,
    pdflang={pt-BR},
@@ -24,27 +23,43 @@
    pdfstartview=FitH,
    pdfnewwindow=true,
    %pagebackref=true,
-   %pdfcreator={TeX Live 2021: XeTeX (0.999993) + LaTeX2e (2021-06-01) + eTeX (2.6) + TeX (3.141592653)},
-   %pdfproducer={xdvipdfmx (20210318)},
-   pdftitle={\@title}, 
-   pdfauthor={\@author},
-   pdfsubject={\imprimirpreambulo},
-   pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}, 
+   pdfcreator={TeX Live 2025: XeTeX (0.999997) + LaTeX2e (2024-11-01) + TeX (3.141592653) + eTeX (2.6)},
+   pdfproducer={xdvipdfmx (20250205)},
    bookmarksdepth=5,
    citecolor=blue,      % cor dos links para as referências bibliográficas
    linkcolor=red,       % cor dos links internos (sumário, figuras, rodapé)
    filecolor=cyan,      % dor dos links para arquivos
    urlcolor=blue        % cor para links URL
 }
+
+% Desabilita comandos especiais para não ocorrer o warning:
+% "Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding)"
+\pdfstringdefDisableCommands{%
+  \def\hfill{}%
+}
+
+% Para a uvvtex2:
+\makeatletter
+\@ifclassloaded{uvvtex2}{
+   \hypersetup{
+     pdftitle={\@title}, 
+     pdfauthor={\@author},
+     pdfsubject={\imprimirpreambulo},
+     pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}
+   }
+}{}
 \makeatother
 
 % Ajusta os links e cores dependendo se o PDF é para divulgação web ou se é
 % para impressão final em preto-e-branco. Obs.:
 %   colorlinks:   false = links em caixas; true = links coloridos
 %   hidelinks:    esconde os links
-\ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
-   \hypersetup{colorlinks=true}%
-}{% Versão para impressão
+\makeatletter
+\@ifclassloaded{uvvtex2}{
+  \ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
+    \hypersetup{colorlinks=true}%
+  }{% Versão para impressão
    \hypersetup{hidelinks, colorlinks=false}%
+  }
 }
-
+\makeatother

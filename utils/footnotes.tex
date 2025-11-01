@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% footnotes.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes para maior controle de notas de rodapé, inclusive dando
+%%% um label para uma nota e fazendo referência cruzada.
+%%% NÃO ALTERE a ordem de carregamento dos packages!
+\makeatletter
+\@ifclassloaded{faesatex2}{}{
+  %\usepackage{footmisc}
+  \usepackage{footnote}
+  \BeforeBeginEnvironment{tcolorbox}{\savenotes}
+  \AfterEndEnvironment{tcolorbox}{\spewnotes}
+}
+\makeatother
+

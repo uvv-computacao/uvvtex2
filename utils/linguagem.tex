@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% linguagem.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de linguagem e hifenização
+\makeatletter
+\@ifclassloaded{uvvtex2}{}{
+  \usepackage{polyglossia}
+  \setdefaultlanguage[variant=brazilian]{portuguese}
+  \setotherlanguage{english}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hifenização específica de alguams palavras quando a hifenização padrão não
+%%% estiver hifenizando corretamente:
+\makeatletter
+\@ifclassloaded{uvvtex2}{}{
+  \hyphenation{%
+    Git-Hub
+    LaTeX
+    po-ly-glos-sia
+    trans-gre-din-do
+  }
+}
+\makeatother
+

@@ -26,21 +26,59 @@
   \sisetup{separate-uncertainty}
   \sisetup{multi-part-units = single}
   \sisetup{binary-units = true}
+  \sisetup{list-final-separator = { e }}
+\usepackage{syllogism}
+  \setsylpuncpa{}
+  \setsylpuncpb{}
+  \setsylpuncc{}
+  \setsylergosign{}
 \usepackage{bm}
 \usepackage{cancel}
+\usepackage{esvect}
+\usepackage{mathtools}
+\usepackage{icomma}
+\usepackage{nicefrac}
 
 % Altera separador decimal via comando, se necessário (prefira o siunitx):
 %\mathchardef\period=\mathcode`.
 %\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
 
-\usepackage{esvect}
-\usepackage{mathtools}
+% Declara alguams unidades adicionais para siunitx:
+\DeclareSIUnit{\degreeFahrenheit}{\unit{\degree}F}
+\DeclareSIUnit{\gravity}{\mbox{$g$}}
+
+
 
 % Definições para teoremas, etc.
-\theoremstyle{definition}
-\newtheorem{definicao}{Definição}[chapter]
-\newtheorem{conjecture}{Conjectura}[chapter]
-\newtheorem{teorema}{Teorema}[chapter]
-\newtheorem{lemma}{Lema}[chapter]
-\newtheorem{corolario}{Corolário}[chapter]
+\makeatletter
+\@ifclassloaded{article}{
+  \theoremstyle{definition}
+  \newtheorem{definicao}{Definição}[section]
+  \newtheorem{conjecture}{Conjectura}[section]
+  \newtheorem{teorema}{Teorema}[section]
+  \newtheorem{lemma}{Lema}[section]
+  \newtheorem{corolario}{Corolário}[section]
+}{}
+\makeatother
 
+\makeatletter
+\@ifclassloaded{book}{
+  \theoremstyle{definition}
+  \newtheorem{definicao}{Definição}[chapter]
+  \newtheorem{conjecture}{Conjectura}[chapter]
+  \newtheorem{teorema}{Teorema}[chapter]
+  \newtheorem{lemma}{Lema}[chapter]
+  \newtheorem{corolario}{Corolário}[chapter]
+}{}
+\makeatother
+
+\makeatletter
+\@ifclassloaded{uvvtex2}{
+  \theoremstyle{definition}
+  \newtheorem{definicao}{Definição}[chapter]
+  \newtheorem{conjecture}{Conjectura}[chapter]
+  \newtheorem{teorema}{Teorema}[chapter]
+  \newtheorem{lemma}{Lema}[chapter]
+  \newtheorem{corolario}{Corolário}[chapter]
+}{}
+\makeatother

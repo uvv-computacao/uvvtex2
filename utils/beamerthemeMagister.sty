@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+% URL: https://github.com/abrantesasf/latex
+%
+% ATENÇÃO: este tema foi baseado no "beamerthemeTimbira", tema originalmente
+% preparado por Euler Taveira (https://www.linkedin.com/in/eulerto/), sócio da
+% empresa de PostgreSQL Timbira (https://www.timbira.com.br).
+%
+% Eu agradeço imensamente ao Euler Taveira por ter me cedido o código de seu
+% tema para que eu pudesse estudá-lo e aprender a como criar e modificar outros
+% temas para o Beamer. Valeu, Euler!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Definições para os temas:
+\useoutertheme{default}
+\useinnertheme{circles}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ajuste básico de cores:
+% Tema de cor básico
+\usecolortheme{whale}
+
+% Definição de novas cores, de acordo com a logo
+\definecolor{magister@cinza}{HTML}{8E8F94}
+\definecolor{magister@vermelho}{HTML}{E50068}
+\definecolor{magister@azulescuro}{HTML}{0067AE}
+\definecolor{magister@azulclaro}{HTML}{00A5DA}
+
+% Bolinhas dos itens e demais estruturas
+\setbeamercolor{structure}{fg=magister@azulclaro}
+
+% Bloco do título do slide 1 (slide "capa")
+\setbeamercolor{title}{use=structure,fg=white,bg=magister@azulescuro}
+
+% Títulos dos slides internos e primeiro bloco do rodapé (usar a mesma cor aqui
+% dá um efeito legal):
+\setbeamercolor{palette primary}{use=structure,fg=magister@azulclaro,bg=white}
+\setbeamercolor{title in head/foot}{bg=magister@azulclaro}
+
+% Segundo bloco do rodapé:
+\setbeamercolor{date in head/foot}{bg=magister@cinza}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Alterar blocos (layout e cores)
+% Sombra nos blocos
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% Bloco padrão
+\setbeamercolor{block title}{fg=white,bg=magister@azulescuro}
+\setbeamercolor{block body}{bg=magister@azulescuro!10}
+
+% Bloco de exemplo
+\setbeamercolor{block title example}{fg=white,bg=magister@azulclaro}
+\setbeamercolor{block body example}{bg=magister@azulclaro!10}
+
+% Bloco de alerta
+\setbeamercolor{block title alerted}{fg=white,bg=magister@vermelho}
+\setbeamercolor{block body alerted}{bg=magister@vermelho!10}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ajuste do cabeçalho, com inclusão do logo
+\addtobeamertemplate{frametitle}{}{
+	\begin{textblock*}{100mm} (0.87\textwidth, -0.97cm)%
+		\href{https://www.magister.pro.br/}{\includegraphics[scale=0.2]{imagens/magister.pdf}}
+	\end{textblock*}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ajuste do rodapé
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.85\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshortinstitute
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}
+        \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+      \end{beamercolorbox}}%
+        \vskip0pt%
+}
+\makeatother
+

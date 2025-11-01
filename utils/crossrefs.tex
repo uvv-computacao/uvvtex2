@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% crossrefs.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes para referências cruzadas, citações dentro do documento,
+%%% links para internet e outros.Configura algumas opções.
+%%% NÃO ALTERE a ordem de carregamento dos packages!
+
+% Para article:
+\makeatletter
+\@ifclassloaded{article}{
+  \usepackage{varioref}
+  \ifxetex
+    \usepackage{hyperref}
+    \usepackage[brazilian]{cleveref}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{hyperref}
+    \else
+      \usepackage[dvips]{hyperref}
+    \fi
+      \usepackage{cleveref}
+  \fi
+  \usepackage{xurl}
+}{}
+\makeatother
+
+% Para book:
+\makeatletter
+\@ifclassloaded{book}{
+  \usepackage{varioref}
+  \ifxetex
+    \usepackage{hyperref}
+    \usepackage[brazilian]{cleveref}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{hyperref}
+    \else
+      \usepackage[dvips]{hyperref}
+    \fi
+      \usepackage{cleveref}
+  \fi
+  \usepackage{xurl}
+}{}
+\makeatother
+

@@ -14,7 +14,11 @@
 % Ajustes para os autores e afiliações, em artigos
 \makeatletter
 \@ifclassloaded{article}{
-\usepackage{authblk}
+  \usepackage{authblk}
+  \renewcommand\Authsep{, }
+  \renewcommand\Authand{ e }
+  \renewcommand\Authands{, e }
+  \setlength{\affilsep}{0.5em}
 }{}
 \makeatother
 

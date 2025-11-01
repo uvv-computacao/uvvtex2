@@ -14,6 +14,14 @@
 % Carrega pacotes iniciais necessários para estrutura de controle e para a
 % criação e o parse de novos comandos
 %\usepackage{ifthen}     % já carregado pela classe abntex2
-\usepackage{xparse}
-\usepackage{ifxetex}
-
+\makeatletter
+\@ifclassloaded{uvvtex2}{
+  \usepackage{xparse}
+  \usepackage{ifxetex}
+}{
+  \usepackage{ifthen}
+  \usepackage{xparse}
+  \usepackage{ifxetex}
+  \usepackage{version}
+}
+\makeatother

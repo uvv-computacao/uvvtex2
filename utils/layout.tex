@@ -11,21 +11,73 @@
 % NÃO ALTERE NADA AQUI!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Para article:
+\makeatletter
+\@ifclassloaded{article}{
+  \usepackage{setspace}
+  \ifxetex
+    \usepackage[xetex]{geometry}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{geometry}
+    \else
+      \usepackage[dvips]{geometry}
+  \fi
+  \usepackage{microtype}
+  \usepackage{lastpage}
+\fi
+}{}
+\makeatother
+
+% Para book:
+\makeatletter
+\@ifclassloaded{book}{
+  \usepackage{setspace}
+  \ifxetex
+    \usepackage[xetex]{geometry}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{geometry}
+    \else
+      \usepackage[dvips]{geometry}
+  \fi
+  \usepackage{microtype}
+  \usepackage{lastpage}
+\fi
+}{}
+\makeatother
+
+% Para exam:
+\makeatletter
+\@ifclassloaded{exam}{
+  \usepackage{setspace}
+  \ifxetex
+    \usepackage[xetex]{geometry}
+  \else
+    \ifpdf
+      \usepackage[pdftex]{geometry}
+    \else
+      \usepackage[dvips]{geometry}
+  \fi
+  \usepackage{microtype}
+  \usepackage{lastpage}
+\fi
+}{}
+\makeatother
+
 % Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
 % em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
 \makeatletter
-\setlength{\@fptop}{5pt}   % Set distance from top of page to first float
+\@ifclassloaded{uvvtex2}{
+  % Distância entre o topo da página e o primeiro float:
+  \setlength{\@fptop}{5pt}
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+  % Para melhorias de justificação:
+  \usepackage{microtype}
+  % Para contar págians:
+  \usepackage{lastpage}
+}{}
 \makeatother
-
-% O tamanho do parágrafo é dado por:
-\setlength{\parindent}{1.3cm}
-
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
-
-% Para melhorias de justificação
-\usepackage{microtype}
-
-% Para contar págians
-\usepackage{lastpage}
-

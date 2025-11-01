@@ -15,10 +15,28 @@
 \makeatletter
 \@ifclassloaded{beamer}{
    \usepackage{listings}
-}{
-   %\usepackage{enumitem}              % abntex2 já carrega
-   \usepackage[ampersand]{easylist}
-   %\usepackage{fancyvrb, bera}        % atualmente não necessário
-}
+}{}
 \makeatother
 
+% Para: uvvtex2
+\makeatletter
+\@ifclassloaded{uvvtex2}{
+  \usepackage[ampersand]{easylist}
+}{}
+\makeatother
+
+% Para article:
+\makeatletter
+\@ifclassloaded{article}{
+  \usepackage{enumitem}
+  \usepackage[ampersand]{easylist}
+}{}
+\makeatother
+
+% Para article:
+\makeatletter
+\@ifclassloaded{book}{
+  \usepackage{enumitem}
+  \usepackage[ampersand]{easylist}
+}{}
+\makeatother

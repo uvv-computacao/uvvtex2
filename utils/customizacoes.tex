@@ -16,12 +16,59 @@
 
 % Comando para escrever uma função e símbolos em fonte monoespaçada:
 \newcommand{\funcao}[1]{\textbf{\texttt{#1}}}
+\newcommand{\funcaob}[1]{\fbox{\texttt{#1}}}
 \newcommand{\simbolo}[1]{\texttt{#1}}
 
+% Commando para colocar o espaço correto entre um número e sua unidade:
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\unidado}[2]{{#1}\,{#2}}
+
 % Produz ordinal masculino ou feminino dependendo do segundo argumento:
-%\newcommand{\ordinal}[2]{%
-%#1%
-%\ifthenelse{\equal{a}{#2}}%
-%{\textordfeminine}%
-%{\textordmasculine}}
+\newcommand{\ordinal}[2]{%
+#1%
+\ifthenelse{\equal{a}{#2}}%
+{\textordfeminine}%
+{\textordmasculine}}
+
+% Comando para colocar o autor da citação corretamente justificado à direita:
+% Modificado de: https://latex.org/forum/viewtopic.php?p=15605&sid=216895679326b531e85caec779e1d710#p15605
+%\newcommand*{\fontequote}[2]{%
+%   \unskip\hspace*{1em plus 1fill}%
+%   \linebreak\hspace*{\fill}\mbox{#1}\vspace{-0.15cm}
+%   \linebreak\hspace*{\fill}\mbox{#2}
+%}
+
+% Comandos para os quadros padronizados dos livros de matemática:
+%\newcommand{\abrevideo}[1]{%
+%\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black,
+%       title=\textbf{Vídeo(s) de referência: #1}]}
+%\newcommand{\fechavideo}{\end{tcolorbox}}
+
+% Comandos para os ícones comuns:
+\newcommand{\youtube}{\faYoutube}
+
+% Comandos para álgebra relacional (testados em XeLaTeX):
+\def\ojoin{\setbox0=\hbox{$\Join$}%
+\rule[0.02ex]{.4em}{.5pt}\llap{\rule[0.95ex]{.4em}{.5pt}}}
+\def\leftouterjoin{\mathbin{\ojoin\mkern-7.8mu\Join}}
+\def\rightouterjoin{\mathbin{\Join\mkern-7.8mu\ojoin}}
+\def\fullouterjoin{\mathbin{\ojoin\mkern-7.8mu\Join\mkern-7.8mu\ojoin}}
+
+% Comando para números dentro de círculos
+% https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% Comando para a linguagem Snap!
+\newcommand{\snap}{Snap\textit{!}}
+
+% Figura inline:
+\newcommand{\inlinefigure}[1]{%
+  \begingroup\normalfont
+  \includegraphics[height=\fontcharht\font`\B]{#1}%
+  \endgroup
+}
+
+% Para o estudo da glibc:
+\newcommand{\glibc}{\texttt{glibc}}
 

@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% artigo.tex
+%
+% Modelo para TCC em formato de artigo
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% ALTERE DE ACORDO COM SUA NECESSIDADE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Classe do documento
+\documentclass[12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Preâmbulo com todas as outras outras chamadas para todos os outros packages
+%%% e o que mais for necessário
+\input{utils/preambulo.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ajuste do layout, espaçamento de linhas e etc.:
+\geometry{a4paper, portrait,
+  left=2cm, right=2cm,
+  top=2cm, bottom=2cm}
+\onehalfspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações para as propriedades do PDF:
+\hypersetup{
+   %hidelinks,           % Comente para web, descomente para impressão
+   colorlinks=true,      % True para web, False para impressão
+   pdftitle={Título do Artigo},
+   pdfauthor={Autor(es)},
+   pdfsubject={Assunto principal do artigo},
+   pdfkeywords={palavras-chave para o PDF},
+   pdfinfo={
+      CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+      ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+   }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Compilação condicional de seções
+%\includeonly{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Começa o documento
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Front matter
+
+% Bookmark para a capa do artigo
+\pdfbookmark[1]{Início}{titulo}
+
+% Título (se necessário um subtítulo, usar quebra de linha e o tamanho large):
+\title{\textbf{Título do TCC}}
+%\bookmark[dest=titulo,level=chapter]{Title Page}
+
+% Autor: comente a linha do segundo autor se apenas 1 único
+\author{Primeiro Autor}
+\author{Segundo Autor}
+\affil{Universidade Vila Velha}
+
+% Data
+\date{202x-xx-xx}
+
+% Gera os títulos:
+\maketitle
+
+% Resumo em português:
+\abstract{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare
+  turpis leo, id mollis risus dignissim id. Aliquam vel consequat
+  lacus. Suspendisse malesuada varius ipsum, vitae fringilla nulla fringilla
+  ac. Ut a sapien a tellus laoreet tincidunt bibendum id diam. Mauris porta
+  risus et nisi eleifend rutrum. Duis ut volutpat risus. Nulla lacus ante,
+  tincidunt sit amet libero id, porttitor auctor quam. Ut nisl tortor, blandit
+  eget odio nec, ornare aliquet turpis. Etiam sit amet fermentum justo. Aliquam
+  a dolor libero. Praesent malesuada, sapien in efficitur pharetra, odio lectus
+  tincidunt tortor, scelerisque hendrerit mauris leo sed tellus. Cras ut neque
+  at velit interdum dignissim.}
+
+% Resumo em inglês:
+\begin{otherlanguage*}{english}
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare
+  turpis leo, id mollis risus dignissim id. Aliquam vel consequat
+  lacus. Suspendisse malesuada varius ipsum, vitae fringilla nulla fringilla
+  ac. Ut a sapien a tellus laoreet tincidunt bibendum id diam. Mauris porta
+  risus et nisi eleifend rutrum. Duis ut volutpat risus. Nulla lacus ante,
+  tincidunt sit amet libero id, porttitor auctor quam. Ut nisl tortor, blandit
+  eget odio nec, ornare aliquet turpis. Etiam sit amet fermentum justo. Aliquam
+  a dolor libero. Praesent malesuada, sapien in efficitur pharetra, odio lectus
+  tincidunt tortor, scelerisque hendrerit mauris leo sed tellus. Cras ut neque
+  at velit interdum dignissim.
+\end{abstract}
+\end{otherlanguage*}
+
+% Sumário:
+\pdfbookmark[1]{Sumário}{sumario}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Main matter
+\newpage
+\input{textuais/art_introducao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Apêndices
+%\appendix
+%\input{apend/placeholder}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Back matter
+%\bibliography{utils/biblioteca}
+%\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Termina o documento
+\end{document}
+

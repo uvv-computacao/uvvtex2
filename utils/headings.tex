@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% headings.tex
+%
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de cabeçalho e rodapé:
+\makeatletter
+\@ifclassloaded{exam}{}{
+  \usepackage{fancyhdr}
+  \setlength{\headheight}{1cm}
+  \setlength{\footskip}{1.5cm}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0.0pt}
+  \pagestyle{fancy}
+  \renewcommand{\sectionmark}[1]{%
+    \markboth{\uppercase{#1}}{}
+  }
+  \renewcommand{\subsectionmark}[1]{%
+    \markright{\uppercase{\thesubsection \hspace{0.1cm} #1}}{}
+  }
+  \fancyhead{}
+  \fancyfoot{}
+  \newcommand{\diminuifonte}{%
+    \fontsize{9pt}{9}\selectfont
+  }
+  \newcommand{\aumentafonte}{%
+    \fontsize{12}{12}\selectfont
+  }
+  % Configura cabeçalho e rodapé para documentos TWOSIDE
+  \fancyhead[EL]{\textbf{\thepage}}
+  \fancyhead[EC]{}
+  \fancyhead[ER]{\diminuifonte \textbf{\leftmark}}
+  \fancyhead[OR]{\textbf{\thepage}}
+  \fancyhead[OC]{}
+  \fancyhead[OL]{\diminuifonte \textbf{\rightmark}}
+  \fancyfoot[EL,EC,ER,OR,OC,OL]{}
+  % Configura cabeçalho e rodapé para documentos ONESIDE
+  %%\lhead{ \fancyplain{}{sup esquerdo} }
+  %%\chead{ \fancyplain{}{sup centro} }
+  %%\rhead{ \fancyplain{}{\thesection} }
+  %%\lfoot{ \fancyplain{}{inf esquerdo} }
+  %%\cfoot{ \fancyplain{}{inf centro} }
+  %%\rfoot{ \fancyplain{}{\thepage} }
+}
+\makeatother
+
