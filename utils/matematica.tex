@@ -1,18 +1,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % matematica.tex
 %
-% Arquivo de configuração de packages para uso com a classe uvvTeX2, para a
-% formatação de trabalhos acadêmicos na Universidade Vila Velha (UVV)
-% (https://www.uvv.br).
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
 %    https://github.com/uvv-computacao/uvvtex2
 %
-% Geralmente não é necessário alterar nada aqui!
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Carrega bibliotecas e símbolos matemáticos, fontes adicionais e configura
-% algumas outras opções
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega bibliotecas e símbolos matemáticos, fontes adicionais e configura
+%%% algumas outras opções
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -25,7 +27,7 @@
   \sisetup{output-decimal-marker = {,}}
   \sisetup{separate-uncertainty}
   \sisetup{multi-part-units = single}
-  \sisetup{binary-units = true}
+  %\sisetup{binary-units = true}
   \sisetup{list-final-separator = { e }}
 \usepackage{syllogism}
   \setsylpuncpa{}
@@ -48,8 +50,10 @@
 \DeclareSIUnit{\gravity}{\mbox{$g$}}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Definições para teoremas, etc.
 
-% Definições para teoremas, etc.
+% Para article:
 \makeatletter
 \@ifclassloaded{article}{
   \theoremstyle{definition}
@@ -58,9 +62,13 @@
   \newtheorem{teorema}{Teorema}[section]
   \newtheorem{lemma}{Lema}[section]
   \newtheorem{corolario}{Corolário}[section]
+  \theoremstyle{remark}
+  \newtheorem*{nota}{Nota}
+  \newtheorem*{observacao}{Observação:}
 }{}
 \makeatother
 
+% Para book:
 \makeatletter
 \@ifclassloaded{book}{
   \theoremstyle{definition}
@@ -69,9 +77,13 @@
   \newtheorem{teorema}{Teorema}[chapter]
   \newtheorem{lemma}{Lema}[chapter]
   \newtheorem{corolario}{Corolário}[chapter]
+  \theoremstyle{remark}
+  \newtheorem*{nota}{Nota}
+  \newtheorem*{observacao}{Observação:}
 }{}
 \makeatother
 
+% Para uvvtex2:
 \makeatletter
 \@ifclassloaded{uvvtex2}{
   \theoremstyle{definition}
@@ -80,5 +92,24 @@
   \newtheorem{teorema}{Teorema}[chapter]
   \newtheorem{lemma}{Lema}[chapter]
   \newtheorem{corolario}{Corolário}[chapter]
+  \theoremstyle{remark}
+  %\newtheorem*{nota}{Nota}
+  \newtheorem*{observacao}{Observação:}
 }{}
 \makeatother
+
+% Para faesatex2:
+\makeatletter
+\@ifclassloaded{faesatex2}{
+  \theoremstyle{definition}
+  \newtheorem{definicao}{Definição}[chapter]
+  \newtheorem{conjecture}{Conjectura}[chapter]
+  \newtheorem{teorema}{Teorema}[chapter]
+  \newtheorem{lemma}{Lema}[chapter]
+  \newtheorem{corolario}{Corolário}[chapter]
+  \theoremstyle{remark}
+  %\newtheorem*{nota}{Nota}
+  \newtheorem*{observacao}{Observação:}
+}{}
+\makeatother
+

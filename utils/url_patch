@@ -1,0 +1,11 @@
+--- url.sty.bak	2023-05-25 10:31:50.234411548 -0300
++++ url.sty	2023-05-25 19:02:01.827129391 -0300
+@@ -127,7 +127,7 @@
+ \def\Url@FormatString{%
+  \UrlFont \Url@MathSetup 
+  $\fam\z@ \textfont\z@\font
+- \expandafter\UrlLeft\Url@String\UrlRight
++ \expandafter\Url@String
+  \m@th$%
+ % \if\urldebug \showlists \fi 
+ }%

@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % linguagem.tex
 %
-% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
-% preferências e modelos pessoais.
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
 %    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
 %
 % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,24 +15,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Configurações de linguagem e hifenização
 \makeatletter
-\@ifclassloaded{uvvtex2}{}{
-  \usepackage{polyglossia}
-  \setdefaultlanguage[variant=brazilian]{portuguese}
-  \setotherlanguage{english}
+\@ifclassloaded{faesatex2}%
+{%
+}%
+{%
+    \@ifclassloaded{uvvtex2}%
+    {%
+    }%
+    {%
+        \usepackage{polyglossia}
+        \setdefaultlanguage[variant=brazilian]{portuguese}
+        \setotherlanguage{english}
+    }%
 }
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hifenização específica de alguams palavras quando a hifenização padrão não
 %%% estiver hifenizando corretamente:
-\makeatletter
-\@ifclassloaded{uvvtex2}{}{
-  \hyphenation{%
-    Git-Hub
-    LaTeX
-    po-ly-glos-sia
-    trans-gre-din-do
-  }
-}
-\makeatother
+%\makeatletter
+%\@ifclassloaded{classe}{}{
+%  \hyphenation{%
+%    Git-Hub
+%    LaTeX
+%    po-ly-glos-sia
+%    trans-gre-din-do
+%  }
+%}
+%\makeatother
 

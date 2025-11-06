@@ -1,0 +1,180 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hp12c.tex
+%
+% Arquivo de configurações para o livro sobre a calculadora HP-12C.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/hp12c_fundamentos
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configura cores importantes
+\definecolor{stackRegister}{RGB}{221,242,232}
+%\definecolor{stackContent}{RGB}{235,245,250}
+\definecolor{stackContent}{RGB}{251,252,253}
+\definecolor{display}{RGB}{150,255,212}
+\definecolor{comentarios}{RGB}{195,255,255}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Teclas da HP-12C:
+\tikzstyle{abstract}=[rectangle, draw=black, rounded corners, fill=gray!20,
+                      drop shadow, text centered, text=black, text width=8mm]
+\tikzstyle{fkey}=[rectangle, draw=black, rounded corners, fill=orange,
+                  drop shadow, text centered,  text=black, text width=8mm]
+\tikzstyle{gkey}=[rectangle, draw=black, rounded corners, fill=blue!40,
+                  drop shadow, text centered,  text=black, text width=8mm]
+
+\newcommand{\mykey}[2]{%
+\begin{tikzpicture} \node (Item) [abstract, rectangle split, rectangle split parts=2]    
+{\textbf{\scriptsize{#1}} \nodepart{second}\textbf{\tiny{#2}}};%
+\end{tikzpicture}}
+
+\newcommand{\myfkey}{%
+\begin{tikzpicture} \node (Item) [fkey, rectangle split, rectangle split parts=2]    
+{\textbf{\footnotesize{f}} \nodepart{second}};%
+\end{tikzpicture}}
+
+\newcommand{\mygkey}{%
+\begin{tikzpicture} \node (Item) [gkey, rectangle split, rectangle split parts=2]  
+{\textbf{\footnotesize{g}} \nodepart{second}};%
+\end{tikzpicture}}
+
+\NewDocumentCommand{\tecla}{oommm}
+ {% #1 = width (optional)
+  % #2 = inner alignment (optional)
+  % #3 = frame color
+  % #4 = background color
+  % #5 = text
+  \IfValueTF{#1}
+   {\IfValueTF{#2}
+    {\fcolorbox{#3}{#4}{\makebox[#1][#2]{#5}}}
+    {\fcolorbox{#3}{#4}{\makebox[#1]{#5}}}%
+   }
+   {\fcolorbox{#3}{#4}{#5}}%
+}
+
+% Primeira linha da HP-12C
+\newcommand{\teclaamort}{\tecla{black}{orange!40}{AMORT}}
+\newcommand{\teclaint}{\tecla{black}{orange!40}{INT}}
+\newcommand{\teclanpv}{\tecla{black}{orange!40}{NPV}}
+\newcommand{\teclarnd}{\tecla{black}{orange!40}{RND}}
+\newcommand{\teclairr}{\tecla{black}{orange!40}{IRR}}
+\newcommand{\teclan}{\tecla{black}{white}{n}}
+\newcommand{\teclai}{\tecla{black}{white}{i}}
+\newcommand{\teclapv}{\tecla{black}{white}{PV}}
+\newcommand{\teclapmt}{\tecla{black}{white}{PMT}}
+\newcommand{\teclafv}{\tecla{black}{white}{FV}}
+\newcommand{\teclachs}{\tecla{black}{white}{CHS}}
+\newcommand{\teclasete}{\tecla{black}{white}{7}}
+\newcommand{\teclaoito}{\tecla{black}{white}{8}}
+\newcommand{\teclanove}{\tecla{black}{white}{9}}
+\newcommand{\tecladiv}{\tecla{black}{white}{$\div$}}
+\newcommand{\tecladozex}{\tecla{black}{blue!20}{12\,$\times$}}
+\newcommand{\tecladozediv}{\tecla{black}{blue!20}{12\,$\div$}}
+\newcommand{\teclacfzero}{\tecla{black}{blue!20}{CF$_0$}}
+\newcommand{\teclacfj}{\tecla{black}{blue!20}{CF$_j$}}
+\newcommand{\teclanj}{\tecla{black}{blue!20}{N$_j$}}
+\newcommand{\tecladate}{\tecla{black}{blue!20}{DATE}}
+\newcommand{\teclabeg}{\tecla{black}{blue!20}{BEG}}
+\newcommand{\teclaend}{\tecla{black}{blue!20}{END}}
+\newcommand{\teclamem}{\tecla{black}{blue!20}{MEM}}
+
+% Segunda linha da HP-12C
+\newcommand{\teclabond}{\tecla{white}{white}{\color{orange}{\textbf{BOND}}}}
+\newcommand{\teclaprice}{\tecla{black}{orange!40}{PRICE}}
+\newcommand{\teclaytm}{\tecla{black}{orange!40}{YTM}}
+\newcommand{\tecladepreciation}{\tecla{white}{white}{\color{orange}{\textbf{DEPRECIATION}}}}
+\newcommand{\teclasl}{\tecla{black}{orange!40}{SL}}
+\newcommand{\teclasoyd}{\tecla{black}{orange!40}{SOYD}}
+\newcommand{\tecladb}{\tecla{black}{orange!40}{DB}}
+\newcommand{\teclaelevado}{\tecla{black}{white}{$y^x$}}
+\newcommand{\teclainverso}{\tecla{black}{white}{$1/x$}}
+\newcommand{\teclaporcentot}{\tecla{black}{white}{\%\,T}}
+\newcommand{\tecladeltaporcento}{\tecla{black}{white}{$\Delta$\,\%}}
+\newcommand{\teclaporcento}{\tecla{black}{white}{\%}}
+\newcommand{\teclaeex}{\tecla{black}{white}{EEX}}
+\newcommand{\teclaquatro}{\tecla{black}{white}{4}}
+\newcommand{\teclacinco}{\tecla{black}{white}{5}}
+\newcommand{\teclaseis}{\tecla{black}{white}{6}}
+\newcommand{\teclavezes}{\tecla{black}{white}{$\times$}}
+\newcommand{\teclaraiz}{\tecla{black}{blue!20}{$\sqrt{x}$}}
+\newcommand{\teclaeelevado}{\tecla{black}{blue!20}{$e^x$}}
+\newcommand{\teclaln}{\tecla{black}{blue!20}{LN}}
+\newcommand{\teclafrac}{\tecla{black}{blue!20}{FRAC}}
+\newcommand{\teclaintg}{\tecla{black}{blue!20}{INTG}}
+\newcommand{\tecladeltadias}{\tecla{black}{blue!20}{$\Delta$\,DYS}}
+\newcommand{\tecladmy}{\tecla{black}{blue!20}{D.MY}}
+\newcommand{\teclamdy}{\tecla{black}{blue!20}{M.DY}}
+\newcommand{\teclaxw}{\tecla{black}{blue!20}{$\overline{x}\,w$}}
+
+% Terceira linha da HP-12C (incluindo enter, exceto lstx)
+\newcommand{\teclaclear}{\tecla{white}{white}{\color{orange}{\textbf{CLEAR}}}}
+\newcommand{\teclapr}{\tecla{black}{orange!40}{P/R}}
+\newcommand{\teclasoma}{\tecla{black}{orange!40}{$\sum$}}
+\newcommand{\teclaprgm}{\tecla{black}{orange!40}{PRGM}}
+\newcommand{\teclafin}{\tecla{black}{orange!40}{FIN}}
+\newcommand{\teclareg}{\tecla{black}{orange!40}{REG}}
+\newcommand{\teclaprefix}{\tecla{black}{orange!40}{PREFIX}}
+\newcommand{\teclars}{\tecla{black}{white}{R/S}}
+\newcommand{\teclasst}{\tecla{black}{white}{SST}}
+\newcommand{\teclar}{\tecla{black}{white}{R\,$\downarrow$}}
+\newcommand{\teclatrocaxy}{\tecla{black}{white}{$x{\gtrless}y$}}
+\newcommand{\teclaclx}{\tecla{black}{white}{CL\,$x$}}
+\newcommand{\teclaenter}{\tecla{black}{white}{ENTER}}
+\newcommand{\teclaum}{\tecla{black}{white}{1}}
+\newcommand{\tecladois}{\tecla{black}{white}{2}}
+\newcommand{\teclatres}{\tecla{black}{white}{3}}
+\newcommand{\teclamenos}{\tecla{black}{white}{$-$}}
+\newcommand{\teclapse}{\tecla{black}{blue!20}{PSE}}
+\newcommand{\teclabst}{\tecla{black}{blue!20}{BST}}
+\newcommand{\teclagto}{\tecla{black}{blue!20}{GTO}}
+\newcommand{\teclaxmenorigualy}{\tecla{black}{blue!20}{$x \leqslant  y$}}
+\newcommand{\teclaxigualzero}{\tecla{black}{blue!20}{$x = 0$}}
+\newcommand{\teclaxr}{\tecla{black}{blue!20}{$\widehat{x}\,,r$}}
+\newcommand{\teclayr}{\tecla{black}{blue!20}{$\widehat{y}\,,r$}}
+\newcommand{\teclafatorial}{\tecla{black}{blue!20}{n!}}
+
+% Quarta linha da HP-12C (excluindo enter, inclindo lstx)
+\newcommand{\teclaon}{\tecla{black}{white}{ON}}
+\newcommand{\teclaf}{\tecla{black}{orange!40}{f}}
+\newcommand{\teclag}{\tecla{black}{blue!20}{g}}
+\newcommand{\teclasto}{\tecla{black}{white}{STO}}
+\newcommand{\teclarcl}{\tecla{black}{white}{RCL}}
+\newcommand{\teclazero}{\tecla{black}{white}{0}}
+\newcommand{\teclaponto}{\tecla{black}{white}{\tiny{\textbullet}}}
+\newcommand{\teclasomamais}{\tecla{black}{white}{$\sum+$}}
+\newcommand{\teclamais}{\tecla{black}{white}{$+$}}
+\newcommand{\teclalstx}{\tecla{black}{blue!20}{LST\,$x$}}
+\newcommand{\teclamediax}{\tecla{black}{blue!20}{$\overline{x}$}}
+\newcommand{\teclas}{\tecla{black}{blue!20}{s}}
+\newcommand{\teclasomamenos}{\tecla{black}{blue!20}{$\sum-$}}
+
+% Combinações de uso freqüente
+\newcommand{\limpaest}{\teclaclear\teclasoma}
+\newcommand{\limpaprgm}{\teclaclear\teclaprgm}
+\newcommand{\limpafin}{\teclaclear\teclafin}
+\newcommand{\limpareg}{\teclaclear\teclareg}
+\newcommand{\limpaprefix}{\teclaclear\teclaprefix}
+\newcommand{\flimpaest}{\teclaf\teclaclear\teclasoma}
+\newcommand{\flimpaprgm}{\teclaf\teclaclear\teclaprgm}
+\newcommand{\flimpafin}{\teclaf\teclaclear\teclafin}
+\newcommand{\flimpareg}{\teclaf\teclaclear\teclareg}
+\newcommand{\flimpaprefix}{\teclaf\teclaclear\teclaprefix}
+
+% Para o conteúdo da pilha operacional
+\newcommand{\cs}[1]{\emph{#1}}
+\newcommand{\cv}[1]{\textcolor{red}{#1}}
+
+% Para a Platinum/Prestige
+\newcommand{\teclaigual}{\tecla{black}{blue!20}{$=$}}
+\newcommand{\teclaxquadrado}{\tecla{black}{blue!20}{$x^2$}}
+\newcommand{\teclasetacurva}{\tecla{black}{blue!20}{$\curvearrowleft$}}
+\newcommand{\teclasetaesquerda}{\tecla{black}{blue!20}{$\leftarrow$}}
+\newcommand{\teclaabrepar}{\tecla{black}{blue!20}{$($}}
+\newcommand{\teclafechapar}{\tecla{black}{blue!20}{$)$}}
+\newcommand{\teclarpn}{\tecla{black}{orange!40}{RPN}}
+\newcommand{\teclaalg}{\tecla{black}{orange!40}{ALG}}

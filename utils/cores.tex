@@ -1,29 +1,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cores.tex
 %
-% Arquivo de configuração de packages para uso com a classe uvvTeX2, para a
-% formatação de trabalhos acadêmicos na Universidade Vila Velha (UVV)
-% (https://www.uvv.br).
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
 %    https://github.com/uvv-computacao/uvvtex2
 %
-% NÃO ALTERE NADA AQUI!
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Ativa suporte extendido a cores
-% Opções comuns:
-%    usenames (16)
-%    dvipsnames (64)
-%    svgnames (150)
-%    x11names (300)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ativa suporte extendido a cores
+%%% Opções comuns:
+%%%    usenames (16)
+%%%    dvipsnames (64)
+%%%    svgnames (150)
+%%%    x11names (300)
 \makeatletter
-\@ifclassloaded{beamer}{
-   % Beamer sem opções
-  \usepackage{xcolor} 
-}{
-   % Resto opção svgnames
-  \usepackage[svgnames, table]{xcolor}
-}
+\@ifclassloaded{beamer}%
+{%
+    \usepackage{xcolor} 
+}%
+{%
+    \usepackage[svgnames, table]{xcolor}
+}%
 \makeatother
 

@@ -1,16 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % pdfconfig.tex
 %
-% Arquivo de configuração de packages para uso com a classe uvvTeX2, para a
-% formatação de trabalhos acadêmicos na Universidade Vila Velha (UVV)
-% (https://www.uvv.br).
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
 %    https://github.com/uvv-computacao/uvvtex2
 %
-% NÃO ALTERE NADA AQUI!
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configurações básicas do PDF
 \hypersetup{
    unicode=true,
@@ -25,29 +30,49 @@
    %pagebackref=true,
    pdfcreator={TeX Live 2025: XeTeX (0.999997) + LaTeX2e (2024-11-01) + TeX (3.141592653) + eTeX (2.6)},
    pdfproducer={xdvipdfmx (20250205)},
+   %pdftitle={\@title}, 
+   %pdfauthor={\@author},
+   %pdfsubject={\imprimirpreambulo},
+   %pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}, 
    bookmarksdepth=5,
-   citecolor=blue,      % cor dos links para as referências bibliográficas
+   citecolor=cyan,      % cor dos links para as referências bibliográficas
    linkcolor=red,       % cor dos links internos (sumário, figuras, rodapé)
-   filecolor=cyan,      % dor dos links para arquivos
-   urlcolor=blue        % cor para links URL
+   filecolor=magenta,   % dor dos links para arquivos
+   urlcolor=blue,       % cor para links URL
+   anchorcolor=black    % cor para o texto âncora (alvo)
 }
 
 % Desabilita comandos especiais para não ocorrer o warning:
 % "Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding)"
 \pdfstringdefDisableCommands{%
   \def\hfill{}%
+  \def\uppercase#1{#1}%
 }
 
 % Para a uvvtex2:
 \makeatletter
-\@ifclassloaded{uvvtex2}{
-   \hypersetup{
-     pdftitle={\@title}, 
-     pdfauthor={\@author},
-     pdfsubject={\imprimirpreambulo},
-     pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}
-   }
-}{}
+\@ifclassloaded{uvvtex2}%
+{%
+    \hypersetup{
+        pdftitle={\@title}, 
+        pdfauthor={\@author},
+        pdfsubject={\imprimirpreambulo},
+        pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}
+    }
+}%
+{%
+    \@ifclassloaded{faesatex2}%
+    {%
+        \hypersetup{
+            pdftitle={\@title}, 
+            pdfauthor={\@author},
+            pdfsubject={\imprimirpreambulo},
+            pdfkeywords={\imprimirpalavraschave, \imprimirkeywords}
+        }
+    }%
+    {%
+    }%
+}
 \makeatother
 
 % Ajusta os links e cores dependendo se o PDF é para divulgação web ou se é
@@ -55,11 +80,24 @@
 %   colorlinks:   false = links em caixas; true = links coloridos
 %   hidelinks:    esconde os links
 \makeatletter
-\@ifclassloaded{uvvtex2}{
-  \ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
-    \hypersetup{colorlinks=true}%
-  }{% Versão para impressão
-   \hypersetup{hidelinks, colorlinks=false}%
-  }
-}
+\@ifclassloaded{uvvtex2}%
+{%
+    \ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
+        \hypersetup{colorlinks=true}%
+    }{% Versão para impressão
+        \hypersetup{hidelinks, colorlinks=false}%
+    }
+}%
+{%
+    \@ifclassloaded{faesatex2}%
+    {%
+        \ifthenelse{\equal{\imprimirversaoweb}{S}}{% Versão para web
+            \hypersetup{colorlinks=true}%
+        }{% Versão para impressão
+            \hypersetup{hidelinks, colorlinks=false}%
+        }
+    }%
+    {%
+    }%
+}%
 \makeatother

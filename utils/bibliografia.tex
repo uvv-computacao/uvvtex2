@@ -1,29 +1,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bibliografia.tex
 %
-% Arquivo de configuração de packages para uso com a classe uvvTeX2, para a
-% formatação de trabalhos acadêmicos na Universidade Vila Velha (UVV)
-% (https://www.uvv.br).
+% Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+% preferências e modelos pessoais.
 %
 % Para maiores informações, visite:
-%    https://github.com/uvv-computacao/uvvtex2
+%    https://github.com/abrantesasf/latex
 %
-% NÃO ALTERE NADA AQUI!
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Referências bibliográficas
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências bibliográficas
 \usepackage[brazilian,hyperpageref]{backref} % Páginas onde foi citado
 \usepackage[alf]{abntex2cite}	             % Citações padrão ABNT
 
-% Configurações do pacote backref:
+%%% Configurações do pacote backref:
 \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
 \renewcommand{\backref}{}
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes, nas páginas #2.%
-	\fi}%
-
+    \ifcase #1 %
+        Nenhuma citação no texto.%
+    \or
+        Citado na página #2.%
+    \else
+        Citado #1 vezes, nas páginas #2.%
+    \fi%
+}%

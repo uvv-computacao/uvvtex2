@@ -14,25 +14,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Pacote para índice remissivo
 \makeatletter
-\@ifclassloaded{book}{
-  \usepackage{makeidx}
-  \makeindex
-}{}
+\@ifclassloaded{book}%
+{%
+    \usepackage{makeidx}
+    \makeindex
+}%
+{%
+}
 \makeatother
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Pacote para glossário
 \makeatletter
-\@ifclassloaded{book}{
-  \usepackage[toc]{glossaries}
-  %\newglossary[nlg]{notation}{not}{ntn}{Notação}
-  %\newglossaryentry{not:set}{
-  %   type = notation,
-  %   name = {$\mathbb{N}$},
-  %   description = conjunto dos números naturais,
-  %   sort = {N}}
-  %\makeglossaries
-}{}
+\@ifclassloaded{book}%
+{
+    \usepackage[toc]{glossaries}
+    %\newglossary[nlg]{notation}{not}{ntn}{Notação}
+    %\newglossaryentry{not:set}{
+    %   type = notation,
+    %   name = {$\mathbb{N}$},
+    %   description = conjunto dos números naturais,
+    %   sort = {N}}
+    %\makeglossaries
+}%
+{%
+}
 \makeatother
 

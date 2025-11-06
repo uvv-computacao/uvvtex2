@@ -1,4 +1,4 @@
-% Makeindex style file myhead.ist
+% Estilo geral para formatação de índices remissivos
 heading_prefix "{\\bfseries\\hfil "
 heading_suffix "\\hfil}\\nopagebreak\n"
 headings_flag  1

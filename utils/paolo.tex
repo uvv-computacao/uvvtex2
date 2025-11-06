@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% paolo.tex
+%
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
+%
+% Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
+%    https://github.com/uvv-computacao/uvvtex2
+%
+% Este modelo foi baseado e adaptado do modelo de Paolo Adajar (mais informações
+% em: https://padajar.com/2021/07/04/pset-template/).
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{2mm}
+
+\setlist[enumerate]{label=({\alph*})}
+\setlist[enumerate, 2]{label=({\roman*})}
+
+\allowdisplaybreaks[1]
+
+\newcommand{\psetheader}{
+    \ifthenelse{\isundefined{\collaborators}}{
+        \begin{center}
+            {\setlength{\parindent}{0cm} \setlength{\parskip}{0mm}
+
+                {\textbf{\classnum~\semester:~\assignment} \hfill \name}
+
+                \subject \hfill \href{mailto:\email}{\tt \email}
+
+                Professor(es):~\instructors \hfill Entrega:~\duedate
+
+                \hrulefill}
+        \end{center}
+    }{
+        \begin{center}
+            {\setlength{\parindent}{0cm} \setlength{\parskip}{0mm}
+
+                {\textbf{\classnum~\semester:~\assignment} \hfill \name\footnote{Colaborador(es): \collaborators}}
+
+                \subject \hfill \href{mailto:\email}{\tt \email}
+				
+                Professor(es):~\instructors \hfill Entrega:~\duedate	
+
+                \hrulefill}
+        \end{center}
+    }
+}
+
+\renewcommand{\thepage}{\classnum~\assignment \hfill \arabic{page}}
+
+\makeatletter
+\def\points{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]#2{{\ifthenelse{\equal{#2}{1}}{{[1 point, #1]}}{{[#2 points, #1]}}}}
+\def\@without#1{\ifthenelse{\equal{#1}{1}}{{[1 point]}}{{[#1 points]}}}
+\makeatother
+
+\newenvironment{problem}[1]{\color{black} #1}{}
+
+\newenvironment{solution}{%
+    \leavevmode\begin{tcolorbox}[breakable, colback=green!5!white,colframe=green!75!black,
+                                 enhanced jigsaw] \proof[\scshape Solução:] \setlength{\parskip}{2mm}%
+    }{\renewcommand{\qedsymbol}{$\blacksquare$} \endproof \end{tcolorbox}}
+
+\newenvironment{reflection}{\begin{tcolorbox}[breakable, colback=black!8!white,colframe=black!60!white,
+                                   enhanced jigsaw, parbox = false]{\scshape Reflexões:}}{\end{tcolorbox}}
+
+\newcommand{\qedh}{\renewcommand{\qedsymbol}{$\blacksquare$}\qedhere}

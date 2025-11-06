@@ -1,15 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % customizacoes.tex
 %
-% Arquivo de configuração de packages para uso com a classe uvvTeX2, para a
-% formatação de trabalhos acadêmicos na Universidade Vila Velha (UVV)
-% (https://www.uvv.br).
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
 %    https://github.com/uvv-computacao/uvvtex2
 %
-% Crie os comandos que você precisa para usa monografia aqui!
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Vários comandinhos úteis e outras gambiarras
 
 % Commando para ``italizar´´ palavras em inglês (e outras línguas!):
 \newcommand{\ingles}[1]{\textit{#1}}
@@ -24,11 +28,17 @@
 \newcommand{\unidado}[2]{{#1}\,{#2}}
 
 % Produz ordinal masculino ou feminino dependendo do segundo argumento:
-\newcommand{\ordinal}[2]{%
-#1%
-\ifthenelse{\equal{a}{#2}}%
-{\textordfeminine}%
-{\textordmasculine}}
+\makeatletter
+    \@ifclassloaded{uvvtex2}%
+    {}%
+    {%
+        \newcommand{\ordinal}[2]{%
+            #1%
+            \ifthenelse{\equal{a}{#2}}%
+            {\textordfeminine}%
+            {\textordmasculine}}
+    }%
+\makeatother
 
 % Comando para colocar o autor da citação corretamente justificado à direita:
 % Modificado de: https://latex.org/forum/viewtopic.php?p=15605&sid=216895679326b531e85caec779e1d710#p15605
@@ -39,10 +49,10 @@
 %}
 
 % Comandos para os quadros padronizados dos livros de matemática:
-%\newcommand{\abrevideo}[1]{%
-%\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black,
-%       title=\textbf{Vídeo(s) de referência: #1}]}
-%\newcommand{\fechavideo}{\end{tcolorbox}}
+\newcommand{\abrevideo}[1]{%
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!75!black,
+       title=\textbf{Vídeo(s) de referência: #1}]}
+\newcommand{\fechavideo}{\end{tcolorbox}}
 
 % Comandos para os ícones comuns:
 \newcommand{\youtube}{\faYoutube}
@@ -71,4 +81,3 @@
 
 % Para o estudo da glibc:
 \newcommand{\glibc}{\texttt{glibc}}
-

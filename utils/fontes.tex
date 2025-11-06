@@ -1,56 +1,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fontes.tex
 %
-% Arquivo de configuração de packages para uso com a classe uvvTeX2, para a
-% formatação de trabalhos acadêmicos na Universidade Vila Velha (UVV)
-% (https://www.uvv.br).
+% Arquivo de configuração de packages para o LaTeX, considerando diversas
+% classes que constumo utilizar.
 %
 % Para maiores informações, visite:
+%    https://github.com/abrantesasf/latex
 %    https://github.com/uvv-computacao/uvvtex2
 %
-% Você deve informar abaixo quais são as fontes que você quer usar na sua
-% monografia, se utilizar o XeLaTeX para a compilação. Se usar o pdfLaTeX a
-% monografia será impressa com as fontes padronizadas do TeX.
+% Você deve informar abaixo quais são as fontes que você quer usar, se utilizar
+% o XeLaTeX para a compilação. Se compilar com o pdfLaTeX, usaremos as fontes
+% padronizadas do TeX. Se usar fontes específicas, elas devem estar disponíveis
+% no diretório "utils/fontes".
+%
+% NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Configurações de encodings e fontes:
-\ifxetex
-   % Se usar XeLaTeX, usa fontes específicas:
-   %\usepackage[tuenc,no-math]{fontspec}
-   \usepackage[tuenc]{fontspec}
-   %\setmainfont{equity-text-a-regular.otf}[
-   %   Path           = utils/fontes/                         ,
-   %   BoldFont       = equity-text-a-bold.otf                ,
-   %   ItalicFont     = equity-text-a-italic.otf              ,
-   %   BoldItalicFont = equity-text-a-bold-italic.otf]
-   %\setsansfont{equity-text-b-regular.otf}[
-   %   Path           = utils/fontes/                         ,
-   %   BoldFont       = equity-text-b-bold.otf                ,
-   %   ItalicFont     = equity-text-b-italic.otf              ,
-   %   BoldItalicFont = equity-text-b-bold-italic.otf]
-   \setmonofont{courier_prime.ttf}[
-      Path           = utils/fontes/                         ,
-      BoldFont       = courier_prime_bold.ttf                ,
-      ItalicFont     = courier_prime_italic.ttf              ,
-      BoldItalicFont = courier_prime_bold_italic.ttf]
-   %\setmonofont{triplicate-t4-regular.otf}[
-   %   Path           = utils/fontes/                         ,
-   %   BoldFont       = triplicate-t4-bold.otf                ,
-   %   ItalicFont     = triplicate-t4-italic.otf              ,
-   %   BoldItalicFont = triplicate-t4-bold-italic.otf]
-   \usepackage{fontawesome5}
-\else
-   % Se não for XeLaTeX, vai com as normais mesmo:
-   \usepackage[T1]{fontenc}
-   \usepackage[utf8]{inputenc}
-   \usepackage{lmodern}
-   % Altera a fonte padrão do documento (nem todas funcionam em modo math):
-   %   phv = Helvetica
-   %   ptm = Times
-   %   ppl = Palatino
-   %   pbk = bookman
-   %   pag = AdobeAvantGarde
-   %   pnc = Adobe NewCenturySchoolBook
-   %\renewcommand{\familydefault}{ppl}
-\fi
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de encodings e fontes:
+\ifxetex
+  % Se usar XeLaTeX, usa fontes específicas:
+  \usepackage{fontspec}
+  \setmainfont[
+    Path           = utils/fontes/static/                ,
+    UprightFont    = ebgaramond-regular.ttf                ,
+    BoldFont       = ebgaramond-bold.ttf                   ,
+    ItalicFont     = ebgaramond-italic.ttf                 ,
+    BoldItalicFont = ebgaramond-bolditalic.ttf             ,
+    SmallCapsFont  = ebgaramond-regular.ttf]{EB Garamond}
+  \setsansfont[
+    Path           = utils/fontes/static/                  ,
+    UprightFont    = roboto-regular.ttf                    ,
+    BoldFont       = roboto-bold.ttf                       ,
+    ItalicFont     = roboto-italic.ttf                     ,
+    BoldItalicFont = roboto-bolditalic.ttf]{Roboto}
+  \setmonofont[
+    Path           = utils/fontes/static/                  ,
+    UprightFont    = courier_prime.ttf                     ,
+    BoldFont       = courier_prime_bold.ttf                ,
+    ItalicFont     = courier_prime_italic.ttf              ,
+    BoldItalicFont = courier_prime_bold_italic.ttf]{Courier Prime}
+  \usepackage{fontawesome5}
+\else
+  % Se não for XeLaTeX, vai com as normais mesmo:
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+  % Altera a fonte padrão do documento (nem todas funcionam em modo math):
+  %   phv = Helvetica
+  %   ptm = Times
+  %   ppl = Palatino
+  %   pbk = bookman
+  %   pag = AdobeAvantGarde
+  %   pnc = Adobe NewCenturySchoolBook
+  %\renewcommand{\familydefault}{ppl}
+\fi
